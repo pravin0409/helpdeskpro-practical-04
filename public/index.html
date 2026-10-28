@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelpDeskPro | Support Ticket System</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">HelpDesk<span>Pro</span></a>
+    <span class="topbar-label">Support Center</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">CUSTOMER SUPPORT PORTAL</p>
+      <h1>How can we help you?</h1>
+      <p>Submit a support ticket and our team will help you resolve your issue.</p>
+    </section>
+
+    <section class="layout">
+      <section class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Create a ticket</h2>
+            <p>Fields marked * are required.</p>
+          </div>
+          <span class="heading-icon" aria-hidden="true">+</span>
+        </div>
+
+        <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+        <form id="ticketForm">
+          <div class="field">
+            <label for="name">Full name *</label>
+            <input id="name" name="name" type="text" maxlength="60"
+              placeholder="e.g. Rahul Sharma" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email address *</label>
+            <input id="email" name="email" type="email"
+              placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="title">Ticket title *</label>
+            <input id="title" name="title" type="text" maxlength="100"
+              placeholder="Briefly describe your issue" required />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="category">Category *</label>
+              <select id="category" name="category" required>
+                <option value="">Select category</option>
+                <option value="Technical">Technical</option>
+                <option value="Account">Account</option>
+                <option value="Billing">Billing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="priority">Priority *</label>
+              <select id="priority" name="priority" required>
+                <option value="">Select priority</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="description">Describe your issue *</label>
+            <textarea id="description" name="description" rows="5"
+              maxlength="1000" placeholder="Explain what happened and what you need help with..."
+              required></textarea>
+            <small>Minimum 10 characters.</small>
+          </div>
+
+          <button id="submitButton" type="submit">Submit support ticket</button>
+        </form>
+      </section>
+
+      <aside class="panel info-panel">
+        <div class="info-icon" aria-hidden="true">?</div>
+        <h2>Before you submit</h2>
+        <p>Give us enough detail to understand and investigate your issue.</p>
+        <ul>
+          <li>Use a valid email address.</li>
+          <li>Choose the most relevant category.</li>
+          <li>Describe the issue clearly.</li>
+          <li>Select a priority that reflects its urgency.</li>
+        </ul>
+
+        <div class="info-note">
+          <strong>Server-side validation</strong>
+          <p>Your submitted information is checked by the server before a ticket is accepted.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="panel tickets-panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Submitted tickets</h2>
+          <p>Tickets created during this server session.</p>
+        </div>
+        <button id="refreshButton" class="secondary-button" type="button">Refresh list</button>
+      </div>
+
+      <div id="ticketCount" class="ticket-count">Loading tickets...</div>
+      <div id="ticketList" class="ticket-list"></div>
+    </section>
+
+    <footer>
+      HelpDeskPro · Node.js Server-Side Validation Practical
+    </footer>
+  </main>
+</body>
+</html>
